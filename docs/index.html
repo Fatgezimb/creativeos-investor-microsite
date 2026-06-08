@@ -72,63 +72,91 @@
             <div class="browser-chrome">
               <span></span><span></span><span></span>
               <strong>Create 13 Group / Creative OS</strong>
+              <em>Preliminary workflow demo</em>
             </div>
             <div class="preview-grid">
               <div class="app-sidebar">
                 <small>Create 13 Group</small>
                 <strong>Creative OS</strong>
-                <span>Overview</span>
-                <span>CRM</span>
-                <span>Projects</span>
-                <span>Media Review</span>
-                <span>Calendar</span>
-                <span>Billing</span>
-                <span>Client Portal</span>
+                <button type="button" class="side-item active" data-module="overview">Overview</button>
+                <button type="button" class="side-item" data-module="crm">CRM</button>
+                <button type="button" class="side-item" data-module="projects">Projects</button>
+                <button type="button" class="side-item" data-module="review">Media Review</button>
+                <button type="button" class="side-item" data-module="calendar">Calendar</button>
+                <button type="button" class="side-item" data-module="billing">Billing</button>
+                <button type="button" class="side-item" data-module="portal">Client Portal</button>
               </div>
               <div class="preview-main">
-                <div class="workflow-rail compact">
-                  <span>Sell</span>
-                  <span>Schedule</span>
-                  <span>Produce</span>
-                  <span>Review</span>
-                  <span>Deliver</span>
+                <div class="demo-header">
+                  <div>
+                    <span id="demoEyebrow">Pipeline command center</span>
+                    <strong id="demoTitle">Sell new creative work</strong>
+                  </div>
+                  <div class="demo-status"><i></i><span id="demoStatus">Lead captured 4m ago</span></div>
+                </div>
+                <div class="workflow-rail compact" role="tablist" aria-label="Creative OS workflow stages">
+                  <button type="button" class="stage-tab active" data-stage="sell" role="tab" aria-selected="true">Sell</button>
+                  <button type="button" class="stage-tab" data-stage="schedule" role="tab" aria-selected="false">Schedule</button>
+                  <button type="button" class="stage-tab" data-stage="produce" role="tab" aria-selected="false">Produce</button>
+                  <button type="button" class="stage-tab" data-stage="review" role="tab" aria-selected="false">Review</button>
+                  <button type="button" class="stage-tab" data-stage="deliver" role="tab" aria-selected="false">Deliver</button>
                 </div>
                 <div class="mock-grid">
-                  <article>
-                    <p>Projects</p>
-                    <strong>4 active productions</strong>
-                    <div class="bar"><i style="width: 76%"></i></div>
-                    <div class="bar"><i style="width: 54%"></i></div>
-                    <div class="bar"><i style="width: 38%"></i></div>
+                  <article class="kpi-card">
+                    <p id="primaryKpiLabel">Qualified pipeline</p>
+                    <strong id="primaryKpi">$84.2k</strong>
+                    <span id="primaryKpiNote">12 open creative opportunities</span>
+                    <div class="mini-bars" aria-label="Pipeline health">
+                      <i style="--value: 78%"></i>
+                      <i style="--value: 58%"></i>
+                      <i style="--value: 42%"></i>
+                    </div>
                   </article>
                   <article class="media-card">
-                    <p>Media Review</p>
-                    <div class="media-thumb"></div>
-                    <span>Client notes on v3</span>
+                    <p id="workCardLabel">Current workspace</p>
+                    <div class="media-thumb">
+                      <span></span>
+                      <i></i>
+                    </div>
+                    <strong id="workCardTitle">Brand shoot proposal</strong>
+                    <span id="workCardNote">Scope, estimate, and client notes ready</span>
                   </article>
-                  <article>
-                    <p>Upcoming</p>
-                    <strong>3 client milestones</strong>
-                    <ul>
-                      <li>Creative sync</li>
-                      <li>Client review</li>
-                      <li>Final delivery</li>
+                  <article class="milestone-card">
+                    <p>Next milestones</p>
+                    <strong id="milestoneTitle">3 client actions</strong>
+                    <ul id="milestoneList">
+                      <li>Approve estimate</li>
+                      <li>Pick shoot date</li>
+                      <li>Pay deposit</li>
                     </ul>
                   </article>
-                  <article>
-                    <p>Invoices</p>
-                    <strong>$24,850</strong>
-                    <span>Outstanding pipeline</span>
+                  <article class="kpi-card">
+                    <p id="secondaryKpiLabel">Deposits ready</p>
+                    <strong id="secondaryKpi">$18.4k</strong>
+                    <span id="secondaryKpiNote">4 invoices can be triggered</span>
                   </article>
-                  <article>
-                    <p>Portal Activity</p>
-                    <strong>12 actions today</strong>
-                    <span>Approvals, comments, downloads</span>
+                  <article class="activity-card">
+                    <p>Client activity</p>
+                    <ul id="activityList">
+                      <li><b>Acme Studio</b><span>Viewed proposal</span></li>
+                      <li><b>Northline</b><span>Requested date change</span></li>
+                      <li><b>Pulse Co.</b><span>Approved deposit terms</span></li>
+                    </ul>
                   </article>
-                  <article>
-                    <p>Revenue</p>
-                    <strong>$18,240</strong>
-                    <div class="chart-line"></div>
+                  <article class="chart-card-mini">
+                    <p>Revenue momentum</p>
+                    <strong id="chartValue">$18,240</strong>
+                    <svg class="revenue-chart" viewBox="0 0 240 92" aria-label="Illustrative revenue trend">
+                      <defs>
+                        <linearGradient id="heroChartFill" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0%" stop-color="#32ead8" stop-opacity="0.34" />
+                          <stop offset="100%" stop-color="#32ead8" stop-opacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path id="chartFill" d="M4 74 L42 66 L80 58 L118 48 L156 36 L198 26 L232 14 L232 88 L4 88 Z" />
+                      <path id="chartPath" d="M4 74 L42 66 L80 58 L118 48 L156 36 L198 26 L232 14" />
+                      <circle id="chartDot" cx="232" cy="14" r="4" />
+                    </svg>
                   </article>
                 </div>
               </div>
