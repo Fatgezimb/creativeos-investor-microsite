@@ -40,7 +40,7 @@ Search `docs/index.html` for these placeholders:
 - `Founder Name`
 - `Raising: $___`
 - `Runway: ___ months`
-- `founder@example.com`
+- `Create13group@gmail.com`
 - Financial assumptions in the `Financial Model` section
 
 ## Navigation
