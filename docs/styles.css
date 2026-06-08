@@ -75,22 +75,41 @@ button {
 }
 
 .brand {
-  gap: 12px;
-  min-width: 180px;
-  font-size: 23px;
+  gap: 11px;
+  min-width: 214px;
+  font-size: 21px;
   font-weight: 800;
 }
 
 .brand-mark {
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   color: #061012;
-  font-size: 18px;
+  font-size: 11px;
   line-height: 1;
   border-radius: 7px;
   background: linear-gradient(135deg, var(--cyan), var(--green));
+}
+
+.brand-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-copy strong {
+  color: var(--text);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.parent-brand {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .topnav {
@@ -337,9 +356,14 @@ h3 {
 .stage-points {
   gap: 24px;
   flex-wrap: wrap;
+  margin-bottom: 32px;
   color: var(--muted);
   font-size: 14px;
   font-weight: 600;
+}
+
+.hero .stage-points {
+  display: none;
 }
 
 .product-preview {
@@ -360,6 +384,13 @@ h3 {
   gap: 7px;
   padding: 0 15px;
   border-bottom: 1px solid var(--line);
+}
+
+.browser-chrome strong {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .browser-chrome span {
@@ -388,6 +419,13 @@ h3 {
 .app-sidebar strong {
   color: var(--text);
   font-size: 16px;
+}
+
+.app-sidebar small {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .preview-main {
@@ -510,7 +548,7 @@ h3 {
 .next-preview {
   position: absolute;
   right: clamp(24px, 5vw, 82px);
-  bottom: 24px;
+  bottom: 92px;
   min-width: 280px;
   padding: 18px 20px;
   border: 1px solid var(--line);
@@ -888,6 +926,27 @@ code {
   backdrop-filter: blur(16px);
 }
 
+.deck-footer {
+  position: fixed;
+  left: calc(var(--index) + 24px);
+  right: 24px;
+  bottom: 18px;
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - var(--index) - 560px);
+  color: var(--subtle);
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.deck-footer span + span {
+  padding-left: 14px;
+  border-left: 1px solid rgba(143, 171, 190, 0.2);
+}
+
 .control-bar button {
   min-height: 38px;
   padding: 0 14px;
@@ -967,7 +1026,19 @@ code {
 
   .brand {
     min-width: 0;
-    font-size: 19px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-copy strong {
+    font-size: 17px;
+  }
+
+  .parent-brand {
+    font-size: 9px;
   }
 
   .top-actions .button {
@@ -998,6 +1069,10 @@ code {
   .stage-points {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .hero .stage-points {
+    display: flex;
   }
 
   .button {
@@ -1071,6 +1146,10 @@ code {
     justify-content: space-between;
   }
 
+  .deck-footer {
+    display: none;
+  }
+
   .progress-track {
     flex: 1;
     min-width: 54px;
@@ -1086,6 +1165,15 @@ code {
   .slide-index,
   .control-bar {
     display: none;
+  }
+
+  .deck-footer {
+    display: flex;
+    position: fixed;
+    left: 42px;
+    right: 42px;
+    bottom: 22px;
+    max-width: none;
   }
 
   main {

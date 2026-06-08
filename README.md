@@ -1,6 +1,6 @@
-# CreativeOS Investor Microsite
+# Creative OS Investor Microsite
 
-Static GitHub Pages site that turns the CreativeOS investor deck into an interactive, slideshow-style investor microsite.
+Static GitHub Pages site that turns the Creative OS investor deck into an interactive, slideshow-style investor microsite under the Create 13 Group brand.
 
 ## Files
 
@@ -52,4 +52,4 @@ Search `docs/index.html` for these placeholders:
 
 ## Source note
 
-The site uses selected exported pages from the current CreativeOS presentation PDF, but the investor story, section order, comparison table, GTM, ask, and validation framing have been rewritten for a stronger investor narrative.
+The site uses selected exported pages from the current Creative OS presentation PDF, but the investor story, section order, comparison table, GTM, ask, and validation framing have been rewritten for a stronger investor narrative.
