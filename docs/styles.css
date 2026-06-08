@@ -427,17 +427,30 @@ h3 {
   font-size: 13px;
 }
 
-.app-sidebar strong {
-  color: var(--text);
-  font-size: 16px;
-}
-
 .app-sidebar small {
   margin-bottom: 2px;
   color: var(--green);
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.product-trigger {
+  width: 100%;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.product-trigger.active,
+.product-trigger:hover {
+  color: var(--green);
 }
 
 .side-item {
