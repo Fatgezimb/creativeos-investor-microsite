@@ -8,6 +8,8 @@ Static GitHub Pages site that turns the Creative OS investor deck into an intera
 - `docs/styles.css` - visual system, responsive layout, print rules
 - `docs/script.js` - slide index, progress, keyboard navigation
 - `docs/assets/` - generated concept reference and selected product/deck screenshots
+- `docs/dashboard-data-contract.md` - illustrative KPI/chart contract for the hero dashboard
+- `remotion/creative-os-dashboard/` - optional Remotion composition for rendering the animated dashboard as video
 
 ## Run locally
 
@@ -49,6 +51,17 @@ Search `docs/index.html` for these placeholders:
 - Left slide index jumps to a section on desktop.
 - Bottom controls move previous/next.
 - Keyboard shortcuts: arrow keys, Page Up, Page Down, Home, End.
+
+## Optional Remotion render
+
+The website uses browser-native animation for GitHub Pages. A matching Remotion composition is included for video export:
+
+```bash
+cd remotion/creative-os-dashboard
+npm install
+npm run still
+npm run render
+```
 
 ## Source note
 

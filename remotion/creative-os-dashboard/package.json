@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "still": "remotion still src/index.tsx CreativeOsDashboard --frame=45 --scale=0.5",
+    "render": "remotion render src/index.tsx CreativeOsDashboard out/creative-os-dashboard.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "remotion": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {}
+}
