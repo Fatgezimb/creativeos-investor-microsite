@@ -977,6 +977,64 @@ h3 {
   }
 }
 
+@keyframes scanField {
+  from {
+    background-position: -180px 0, 0 0;
+  }
+  to {
+    background-position: 180px 0, 0 36px;
+  }
+}
+
+@keyframes areaReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawPilotLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes meterSweep {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ringWake {
+  from {
+    opacity: 0;
+    transform: rotate(-30deg) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes orbitPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
 .next-preview {
   display: none;
   position: absolute;
@@ -1358,24 +1416,583 @@ tr.highlight td {
   color: var(--muted);
 }
 
+.roadmap-lab {
+  display: grid;
+  grid-template-columns: minmax(440px, 0.92fr) minmax(520px, 1.08fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+#roadmap,
+#use-of-funds,
+#investment-ask {
+  justify-content: flex-start;
+  padding-top: calc(var(--topbar) + 28px);
+}
+
+#roadmap .section-head,
+#use-of-funds .section-head,
+#investment-ask .section-head {
+  margin-bottom: 16px;
+}
+
+#roadmap h2,
+#use-of-funds h2,
+#investment-ask h2 {
+  font-size: clamp(32px, 2.85vw, 50px);
+}
+
+.pilot-console,
+.funds-orbit,
+.validation-console {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(143, 171, 190, 0.24);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(50, 234, 216, 0.14), transparent 18rem),
+    rgba(9, 18, 26, 0.88);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+}
+
+.pilot-console::before,
+.funds-orbit::before,
+.validation-console::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 47%, rgba(50, 234, 216, 0.08) 50%, transparent 53%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 180px 100%, 100% 36px;
+  opacity: 0.75;
+  pointer-events: none;
+  animation: scanField 6s linear infinite;
+}
+
+.pilot-console {
+  min-height: 348px;
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.console-head,
+.console-kpis {
+  position: relative;
+  z-index: 1;
+}
+
+.console-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.console-head span,
+.fund-stream span,
+.validation-console h3 {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.console-head strong {
+  color: var(--text);
+  font-size: clamp(24px, 2.1vw, 38px);
+  line-height: 1;
+}
+
+.pilot-curve {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: clamp(178px, 12vw, 238px);
+  min-height: 0;
+  margin: 4px 0;
+}
+
+.chart-grid,
+.spark-grid {
+  fill: none;
+  stroke: rgba(143, 171, 190, 0.16);
+  stroke-width: 1;
+}
+
+.pilot-area {
+  fill: url(#pilotCurveFill);
+  opacity: 0;
+  animation: areaReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+}
+
+.pilot-line,
+.spark-line {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  filter: drop-shadow(0 0 12px rgba(50, 234, 216, 0.42));
+  animation: drawPilotLine 1.8s cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+}
+
+.pilot-dot {
+  color: #d8e8ef;
+  opacity: 0;
+  animation: dotPop 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pilot-dot circle,
+.spark-end {
+  fill: var(--green);
+  stroke: rgba(4, 8, 12, 0.9);
+  stroke-width: 4;
+  filter: drop-shadow(0 0 14px rgba(125, 245, 155, 0.65));
+}
+
+.pilot-dot text {
+  fill: currentColor;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.dot-a {
+  animation-delay: 620ms;
+}
+
+.dot-b {
+  animation-delay: 980ms;
+}
+
+.dot-c {
+  animation-delay: 1.28s;
+}
+
+.console-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.console-kpis div {
+  min-height: 52px;
+  padding: 9px 10px;
+  border: 1px solid rgba(143, 171, 190, 0.18);
+  border-radius: 7px;
+  background: rgba(4, 8, 12, 0.44);
+}
+
+.console-kpis b {
+  display: block;
+  color: var(--text);
+  font-size: clamp(21px, 1.75vw, 30px);
+  line-height: 1;
+}
+
+.console-kpis span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+
 .roadmap {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .roadmap article {
-  min-height: 280px;
-  padding: 24px;
+  position: relative;
+  min-height: 152px;
+  padding: 15px;
+  border: 1px solid rgba(143, 171, 190, 0.22);
   border-top: 2px solid var(--cyan);
   border-radius: var(--radius);
-  background: var(--panel);
+  background:
+    linear-gradient(180deg, rgba(50, 234, 216, 0.08), transparent 38%),
+    var(--panel);
+  overflow: hidden;
+}
+
+.roadmap article::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -36% 8%;
+  height: 110px;
+  background: radial-gradient(circle, rgba(50, 234, 216, 0.12), transparent 64%);
+  pointer-events: none;
 }
 
 .roadmap span {
   display: block;
-  margin-bottom: 70px;
+  margin-bottom: 8px;
   color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.roadmap h3 {
+  margin-bottom: 7px;
+  font-size: clamp(17px, 1.28vw, 22px);
+}
+
+.roadmap p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.32;
+}
+
+.roadmap-meter {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 14px;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.roadmap-meter i {
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  transform-origin: left center;
+  animation: meterSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.roadmap article:nth-child(2) .roadmap-meter i,
+.funds-grid article:nth-child(2) i::before {
+  animation-delay: 120ms;
+}
+
+.roadmap article:nth-child(3) .roadmap-meter i,
+.funds-grid article:nth-child(3) i::before {
+  animation-delay: 240ms;
+}
+
+.roadmap article:nth-child(4) .roadmap-meter i,
+.funds-grid article:nth-child(4) i::before {
+  animation-delay: 360ms;
+}
+
+.funds-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.82fr) minmax(560px, 1.18fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.funds-orbit {
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.funds-ring {
+  position: relative;
+  z-index: 1;
+  width: min(260px, 74%);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(9, 18, 26, 0.96) 0 46%, transparent 47%),
+    conic-gradient(var(--cyan) 0 45%, var(--green) 45% 75%, var(--blue) 75% 90%, var(--amber) 90% 100%);
+  box-shadow: 0 0 70px rgba(50, 234, 216, 0.18);
+  animation: ringWake 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.funds-ring::before,
+.funds-ring::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border: 1px solid rgba(50, 234, 216, 0.22);
+  border-radius: 50%;
+  animation: orbitPulse 3.4s ease-in-out infinite;
+}
+
+.funds-ring::after {
+  inset: -44px;
+  animation-delay: 800ms;
+}
+
+.funds-ring span,
+.funds-ring small {
+  position: relative;
+  z-index: 1;
+}
+
+.funds-ring span {
+  color: var(--text);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 850;
+  line-height: 1;
+}
+
+.funds-ring small {
+  max-width: 150px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.fund-stream {
+  position: absolute;
+  z-index: 1;
+  min-width: 126px;
+  padding: 9px 11px;
+  border: 1px solid rgba(143, 171, 190, 0.22);
+  border-radius: 7px;
+  background: rgba(4, 8, 12, 0.62);
+  animation: floatTile 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
+}
+
+.fund-stream b {
+  display: block;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.fund-stream.product {
+  top: 34px;
+  left: 28px;
+}
+
+.fund-stream.gtm {
+  top: 62px;
+  right: 28px;
+  animation-delay: 500ms;
+}
+
+.fund-stream.infra {
+  bottom: 66px;
+  left: 34px;
+  animation-delay: 900ms;
+}
+
+.fund-stream.success {
+  right: 38px;
+  bottom: 42px;
+  animation-delay: 1.3s;
+}
+
+.funds-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.funds-grid article i {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.funds-grid article i::before {
+  content: "";
+  display: block;
+  width: var(--fund);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  transform-origin: left center;
+  animation: meterSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ask-visual-layout {
+  grid-template-columns: minmax(280px, 0.7fr) minmax(540px, 1.3fr);
+}
+
+.ask-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ask-card::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  bottom: -90px;
+  border: 1px solid rgba(50, 234, 216, 0.22);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(50, 234, 216, 0.035),
+    0 0 0 62px rgba(125, 245, 155, 0.025);
+  animation: orbitPulse 3s ease-in-out infinite;
+}
+
+.runway-rail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.runway-rail i {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.runway-rail i::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  transform-origin: left center;
+  animation: meterSweep 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.runway-rail i:nth-child(2)::before {
+  animation-delay: 160ms;
+}
+
+.runway-rail i:nth-child(3)::before {
+  animation-delay: 320ms;
+}
+
+.runway-rail i:nth-child(4)::before {
+  animation-delay: 480ms;
+}
+
+.validation-console {
+  padding: 18px;
+}
+
+.validation-console h3,
+.validation-console .check-list,
+.pilot-funnel,
+.retention-spark {
+  position: relative;
+  z-index: 1;
+}
+
+.validation-console .check-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.validation-console .check-list li {
+  min-height: 0;
+  padding-left: 16px;
+  margin: 0;
+  color: #c5d0da;
+  font-size: 11px;
+  line-height: 1.22;
+}
+
+.validation-console .check-list li::before {
+  top: 0.38em;
+  width: 7px;
+  height: 7px;
+}
+
+.pilot-funnel {
+  display: grid;
+  gap: 7px;
+  margin: 11px 0 10px;
+}
+
+.pilot-funnel div {
+  position: relative;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 12px;
+  overflow: hidden;
+  border: 1px solid rgba(143, 171, 190, 0.16);
+  border-radius: 7px;
+  background: rgba(4, 8, 12, 0.38);
+}
+
+.pilot-funnel div::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--step);
+  background: linear-gradient(90deg, rgba(50, 234, 216, 0.42), rgba(125, 245, 155, 0.14));
+  transform-origin: left center;
+  animation: meterSweep 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pilot-funnel div:nth-child(2)::before {
+  animation-delay: 130ms;
+}
+
+.pilot-funnel div:nth-child(3)::before {
+  animation-delay: 260ms;
+}
+
+.pilot-funnel div:nth-child(4)::before {
+  animation-delay: 390ms;
+}
+
+.pilot-funnel span,
+.pilot-funnel b {
+  position: relative;
+  z-index: 1;
+}
+
+.pilot-funnel span {
+  color: #d8e8ef;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pilot-funnel b {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.retention-spark {
+  width: 100%;
+  height: 66px;
+  margin-bottom: 9px;
+}
+
+.spark-line {
+  stroke-width: 4;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation-duration: 1.45s;
+}
+
+.spark-end {
+  opacity: 0;
+  animation: dotPop 600ms cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
 }
 
 .bars {
@@ -1615,6 +2232,22 @@ code {
   .wedge-layout {
     grid-template-columns: minmax(330px, 1.18fr) repeat(2, minmax(180px, 0.9fr));
   }
+
+  .roadmap-lab {
+    grid-template-columns: minmax(360px, 0.9fr) minmax(430px, 1.1fr);
+  }
+
+  .funds-layout {
+    grid-template-columns: minmax(320px, 0.82fr) minmax(430px, 1.18fr);
+  }
+
+  .pilot-console {
+    min-height: 350px;
+  }
+
+  .validation-console .check-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -1729,9 +2362,11 @@ code {
   .status-board,
   .workflow-map,
   .roadmap,
+  .roadmap-lab,
   .two-column,
   .finance-layout,
   .ask-layout,
+  .funds-layout,
   .surface-gallery,
   .wedge-layout,
   .fragment-flow,
@@ -1776,6 +2411,80 @@ code {
 
   .wedge-proof small {
     display: none;
+  }
+
+  .pilot-console,
+  .funds-orbit,
+  .validation-console {
+    padding: 16px;
+  }
+
+  .pilot-console {
+    min-height: 0;
+    grid-template-rows: auto auto auto;
+  }
+
+  .console-head {
+    flex-direction: column;
+  }
+
+  .pilot-curve {
+    min-height: 190px;
+    margin: 8px 0;
+  }
+
+  .pilot-dot text {
+    display: none;
+  }
+
+  .console-kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap article {
+    min-height: 148px;
+  }
+
+  .funds-orbit {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    place-items: stretch;
+  }
+
+  .funds-ring {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(220px, 76vw);
+  }
+
+  .fund-stream {
+    position: relative;
+    inset: auto;
+    min-width: 0;
+  }
+
+  .funds-grid article {
+    padding-bottom: 42px;
+  }
+
+  .ask-card::after {
+    width: 160px;
+    height: 160px;
+  }
+
+  .retention-spark {
+    height: 74px;
+  }
+
+  .validation-console .check-list {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-console .check-list li {
+    font-size: 12px;
+    line-height: 1.3;
   }
 
   .gtm-list li,

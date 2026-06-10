@@ -432,12 +432,60 @@
           <div class="section-head">
             <p class="slide-count">13 / 18</p>
             <h2>Roadmap is milestone-driven: prove paid usage before widening scope.</h2>
+            <p>Each phase is gated by pilot behavior, not feature volume.</p>
           </div>
-          <div class="roadmap">
-            <article><span>0-90 days</span><p>Paid pilots, onboarding, billing, analytics, feedback loop.</p></article>
-            <article><span>3-6 months</span><p>First $10k MRR, retention tracking, onboarding automation.</p></article>
-            <article><span>6-12 months</span><p>Vertical templates, storage tiers, review polish, telephony.</p></article>
-            <article><span>12+ months</span><p>AI assistant, marketplace, partner channels.</p></article>
+          <div class="roadmap-lab">
+            <div class="pilot-console" aria-label="Animated paid pilot traction dashboard">
+              <div class="console-head">
+                <span>Paid Pilot Motion</span>
+                <strong>0 -> 20 pilots</strong>
+              </div>
+              <svg class="pilot-curve" viewBox="0 0 620 260" role="img" aria-label="Illustrative paid pilot growth curve">
+                <defs>
+                  <linearGradient id="pilotCurveFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#32ead8" stop-opacity="0.42" />
+                    <stop offset="100%" stop-color="#32ead8" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path class="chart-grid" d="M42 44 H588 M42 92 H588 M42 140 H588 M42 188 H588 M42 236 H588" />
+                <path class="pilot-area" d="M48 220 C124 214 154 198 196 182 C252 161 292 166 344 128 C394 92 452 92 512 64 C548 47 572 39 588 34 L588 236 L48 236 Z" />
+                <path class="pilot-line" d="M48 220 C124 214 154 198 196 182 C252 161 292 166 344 128 C394 92 452 92 512 64 C548 47 572 39 588 34" />
+                <g class="pilot-dot dot-a"><circle cx="196" cy="182" r="7" /><text x="206" y="177">5 pilots</text></g>
+                <g class="pilot-dot dot-b"><circle cx="344" cy="128" r="7" /><text x="354" y="122">$10k MRR</text></g>
+                <g class="pilot-dot dot-c"><circle cx="588" cy="34" r="7" /><text x="448" y="30">retention proof</text></g>
+              </svg>
+              <div class="console-kpis">
+                <div><b>70%</b><span>target activation</span></div>
+                <div><b>2.1d</b><span>approval cycle</span></div>
+                <div><b>8+</b><span>weekly actions</span></div>
+              </div>
+            </div>
+            <div class="roadmap">
+              <article style="--progress: 72%">
+                <span>0-90 days</span>
+                <h3>Pilot operating loop</h3>
+                <p>Paid pilots, onboarding, billing, analytics, feedback loop.</p>
+                <div class="roadmap-meter"><i></i></div>
+              </article>
+              <article style="--progress: 58%">
+                <span>3-6 months</span>
+                <h3>First repeatable traction</h3>
+                <p>First $10k MRR, retention tracking, onboarding automation.</p>
+                <div class="roadmap-meter"><i></i></div>
+              </article>
+              <article style="--progress: 42%">
+                <span>6-12 months</span>
+                <h3>Vertical depth</h3>
+                <p>Vertical templates, storage tiers, review polish, telephony.</p>
+                <div class="roadmap-meter"><i></i></div>
+              </article>
+              <article style="--progress: 26%">
+                <span>12+ months</span>
+                <h3>Expansion systems</h3>
+                <p>AI assistant, marketplace, partner channels.</p>
+                <div class="roadmap-meter"><i></i></div>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -471,12 +519,25 @@
           <div class="section-head">
             <p class="slide-count">15 / 18</p>
             <h2>Funding is tied to specific traction milestones.</h2>
+            <p>Capital goes into the operating loops that turn pilots into retention evidence.</p>
           </div>
-          <div class="funds-grid">
-            <article><strong>45%</strong><span>Product and engineering</span><p>Harden onboarding, billing, analytics, review, and pilot-critical workflows.</p></article>
-            <article><strong>30%</strong><span>Go-to-market</span><p>Recruit pilots, build vertical playbooks, and publish customer proof.</p></article>
-            <article><strong>15%</strong><span>Infrastructure and compliance</span><p>Improve reliability, storage, permissions, and operational readiness.</p></article>
-            <article><strong>10%</strong><span>Customer success</span><p>Support onboarding, retention learning, and feedback loops.</p></article>
+          <div class="funds-layout">
+            <div class="funds-orbit" aria-label="Animated use of funds allocation ring">
+              <div class="funds-ring">
+                <span>100%</span>
+                <small>milestone-tied capital</small>
+              </div>
+              <div class="fund-stream product"><b>45%</b><span>Product loop</span></div>
+              <div class="fund-stream gtm"><b>30%</b><span>Pilot demand</span></div>
+              <div class="fund-stream infra"><b>15%</b><span>Trust layer</span></div>
+              <div class="fund-stream success"><b>10%</b><span>Retention</span></div>
+            </div>
+            <div class="funds-grid">
+              <article style="--fund: 45%"><strong>45%</strong><span>Product and engineering</span><p>Harden onboarding, billing, analytics, review, and pilot-critical workflows.</p><i></i></article>
+              <article style="--fund: 30%"><strong>30%</strong><span>Go-to-market</span><p>Recruit pilots, build vertical playbooks, and publish customer proof.</p><i></i></article>
+              <article style="--fund: 15%"><strong>15%</strong><span>Infrastructure and compliance</span><p>Improve reliability, storage, permissions, and operational readiness.</p><i></i></article>
+              <article style="--fund: 10%"><strong>10%</strong><span>Customer success</span><p>Support onboarding, retention learning, and feedback loops.</p><i></i></article>
+            </div>
           </div>
         </section>
 
@@ -502,15 +563,29 @@
             <h2>Raising strategic capital to convert product depth into early traction.</h2>
             <p class="editable-note">Editable placeholders: set the exact raise amount, instrument, runway, and contact information.</p>
           </div>
-          <div class="ask-layout">
+          <div class="ask-layout ask-visual-layout">
             <div class="ask-card">
               <span>Raising</span>
               <strong>$___</strong>
               <p>Instrument: SAFE / convertible note / equity</p>
               <p>Runway: ___ months</p>
+              <div class="runway-rail" aria-label="Runway milestone rail">
+                <i></i><i></i><i></i><i></i>
+              </div>
             </div>
-            <div class="panel">
+            <div class="panel validation-console">
               <h3>Milestones</h3>
+              <div class="pilot-funnel" aria-label="Illustrative pilot onboarding funnel">
+                <div style="--step: 100%"><span>Recruited</span><b>20</b></div>
+                <div style="--step: 72%"><span>Onboarded</span><b>14</b></div>
+                <div style="--step: 54%"><span>Weekly active</span><b>11</b></div>
+                <div style="--step: 38%"><span>Paid retained</span><b>8</b></div>
+              </div>
+              <svg class="retention-spark" viewBox="0 0 420 120" role="img" aria-label="Illustrative retention signal">
+                <path class="spark-grid" d="M10 96 H410 M10 62 H410 M10 28 H410" />
+                <path class="spark-line" d="M16 86 C64 78 88 50 130 56 C172 62 204 34 246 38 C298 42 326 26 404 20" />
+                <circle class="spark-end" cx="404" cy="20" r="6" />
+              </svg>
               <ul class="check-list">
                 <li>Launch 10-20 paid pilots.</li>
                 <li>Reach first $10k MRR.</li>
