@@ -1020,6 +1020,31 @@ h3 {
   padding: 24px;
 }
 
+.status-board article {
+  min-height: 168px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.status-board span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.status-board strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: clamp(26px, 2.4vw, 38px);
+  line-height: 1.06;
+}
+
 .metric-grid strong,
 .pricing-grid strong,
 .funds-grid strong,
@@ -1041,6 +1066,12 @@ h3 {
 .ask-card p {
   color: var(--muted);
   line-height: 1.55;
+}
+
+.status-board p {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(17px, 1.55vw, 22px);
 }
 
 .two-column,
